@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;400;500;600;700&family=DM+Sans:opsz,wght@9..40,400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Warm Cream Background */
+    --background: 48 33% 97%;
+    --foreground: 24 15% 20%;
+
+    /* Soft white for cards, slightly tinted */
+    --card: 0 0% 100%;
+    --card-foreground: 24 15% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 15% 20%;
+
+    /* Warm Orange */
+    --primary: 15 76% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Soft Blue */
+    --secondary: 202 43% 58%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Gentle Green */
+    --accent: 142 30% 65%;
+    --accent-foreground: 24 15% 20%;
+
+    /* Soft Pink/Coral for highlights */
+    --muted: 15 30% 95%;
+    --muted-foreground: 24 10% 45%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 35 25% 85%;
+    --input: 35 25% 85%;
+    --ring: 15 76% 58%;
+
+    --radius: 1.5rem;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 15%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 15%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 15 76% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 202 43% 58%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 142 30% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 15 76% 58%;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+    transition: border-color 200ms ease;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "DM Sans", sans-serif;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    overflow-x: clip;
+    font-variant-numeric: tabular-nums;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+    transition: background-color 200ms ease, color 200ms ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Fraunces", serif;
+    text-wrap: balance;
+    font-weight: 600;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .storybook-shadow {
+    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.06), 0 0 15px -3px rgba(0,0,0,0.02);
+  }
+
+  .book-spine-shadow {
+    box-shadow: inset 12px 0 15px -5px rgba(0,0,0,0.1), 0 15px 35px -5px rgba(0,0,0,0.15);
+  }
+
+  /* Feature Box Utilities */
+  .feature-box-shadow {
+    box-shadow: 0 20px 40px -15px rgba(0,0,0,0.1), 0 0 20px -5px rgba(0,0,0,0.05);
+  }
+
+  .dark .feature-box-shadow {
+    box-shadow: 0 20px 40px -15px rgba(0,0,0,0.3), 0 0 20px -5px rgba(0,0,0,0.2);
+  }
+
+  .feature-image-zoom {
+    transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .group:hover .feature-image-zoom {
+    transform: scale(1.05) rotate(-1deg);
+  }
+
+  /* 3D Book Perspective Utilities */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .book-tilt {
+    transform: rotateY(-20deg) rotateX(5deg) scale(0.95);
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .book-tilt:hover {
+    transform: rotateY(-5deg) rotateX(2deg) scale(1.02);
+  }
+
+  .book-spine {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    transform-origin: left;
+    transform: rotateY(-90deg);
+    background: linear-gradient(to right, hsl(var(--primary) / 0.8), hsl(var(--primary)));
+    border-radius: 4px 0 0 4px;
+    box-shadow: inset 4px 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .book-pages-edge {
+    position: absolute;
+    top: 1%;
+    right: -15px;
+    bottom: 1%;
+    width: 15px;
+    background: linear-gradient(to right, #fdfbf7 0%, #e2dcd0 100%);
+    transform: translateZ(-20px) rotateY(90deg);
+    transform-origin: right;
+    border-radius: 0 4px 4px 0;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+  }
+
+  .book-pages-edge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.03) 2px,
+      rgba(0,0,0,0.03) 4px
+    );
+  }
+
+  .writing-vertical {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+}

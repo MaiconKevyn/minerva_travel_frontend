@@ -1,0 +1,7 @@
+## Pages
+- [Aventuras em Família - O seu guia de viagem ilustrado](/home): Crie guias de viagem personalizados como livros de histórias para a sua família. Transforme cada viagem em uma aventura mágica.
+- [Criar Conta - Aventuras em Família](/signup): Crie sua conta para começar a escrever o livro de viagens da sua família.
+- [Criar Guia - Aventuras em Família](/createguide): Crie seu guia de viagem conversando com nosso assistente.
+- [Entrar - Aventuras em Família](/login): Faça login para acessar seus guias de viagem mágicos.
+- [Meu Painel - Aventuras em Família](/dashboard): No description available
+- [Preços - Aventuras em Família](/pricing): Conheça nossos planos e crie um guia de viagem inesquecível para sua família.
