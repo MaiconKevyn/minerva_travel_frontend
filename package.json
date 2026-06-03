@@ -1,16 +1,15 @@
 {
-  "name": "web",
+  "name": "minerva-travel-frontend",
   "type": "module",
   "version": "0.0.0",
-  "private": true,
   "engines": {
-    "node": ">=20.19.0"
+    "node": "22.x"
   },
   "scripts": {
-    "dev": "vite --host :: --port 3000",
-    "build": "node tools/generate-llms.js || true && vite build",
-    "start": "vite preview --host :: --port 3000",
-    "test": "node --test src/**/*.test.js",
+    "dev": "vite --host 0.0.0.0 --port 3000",
+    "build": "vite build",
+    "start": "vite preview --host 0.0.0.0 --port 3000",
+    "test": "node --test src/**/*.test.js tools/**/*.test.js",
     "lint": "eslint . --quiet",
     "lint:warn": "eslint ."
   },
